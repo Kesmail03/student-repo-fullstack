@@ -46,7 +46,7 @@ const server = http.createServer((req, res) => {
     res.end("cookies... yummm");
   } else {
     res.writeHead(404, { "content-type": "text/html" });
-    res.end("<h1>404 - Page Not Found</h1>");
+    res.end("<h1>404 - Page Not Found</h1>"); //error page
   }
 });
 
