@@ -8,10 +8,17 @@ calculateChange = (change) => {
   let dime = 0;
   let nickel = 0;
   let penny = 0;
-  change = Math.round(change * 100);
-  if (change > 10000) {
+  if (change > 100) {
     return "Error: value is too large";
+  }
+  if (change === 0) {
+    return "Error: value is too small";
+  }
+  if (change < 0) {
+    return "Error: Negative value is incorrect";
   } else {
+    change = Math.round(change * 100);
+
     while (change >= 1) {
       if (change >= 100) {
         change -= 100;
@@ -47,5 +54,7 @@ console.log(calculateChange(0.16));
 // $0.16 ==> 1 dime, 1 nickel, 1 penny
 console.log(calculateChange(150.11));
 // $150.11 ==> Error: the number is too large
+console.log(calculateChange(0));
+console.log(calculateChange(-0.05));
 
 // Add additional test cases here
